@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "python-numeric-opendata"
+version = "0.1.0"
+description = "Test task about creating a checking phone number web service based on Django and PostgreSQL"
+authors = ["Nikita Serditov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.4"
+psycopg2-binary = "^2.9.9"
+pandas = "^2.2.2"
+beautifulsoup4 = "^4.12.3"
+tqdm = "^4.66.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

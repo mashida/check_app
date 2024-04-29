@@ -1,0 +1,8 @@
+{% if operator and region %}
+    <p>Operator: {{ operator }}</p>
+    <p>Region: {{ region }}</p>
+{% elif error %}
+    <p>{{ error }}</p>
+{% endif %}
+
+
