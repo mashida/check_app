@@ -59,6 +59,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         csv_directory = 'csv_data'
         download_csv(URL, csv_directory)
+        NumberRange.objects.all().delete()
         self.process_csv_files_in_directory(csv_directory)
 
     def process_csv_files_in_directory(self, directory):
