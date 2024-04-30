@@ -15,21 +15,22 @@ def check_mobile_number(request):
             number = form.cleaned_data['number']
             operator, region = NumberRange.get_operator_and_region(number)
             if operator and region:
-                # Prepare JSON data
-                json_data = json.dumps({'operator': operator, 'region': region})
-                # Pass the JSON data to the template context
                 context = {
                     'form': form,
-                    'json_data': json_data,
+                    'number': number,
+                    'operator': operator,
+                    'region': region,
                 }
+                logger.debug(f"{context=}")
+                logger.debug(f"{operator=} | {region=}")
                 return render(request, 'check_app/result.html', context)
             else:
-                # Prepare JSON data for error
-                json_data = json.dumps({'error': 'Number not found'})
                 context = {
                     'form': form,
-                    'json_data': json_data,
+                    'error': 'Number onot found',
                 }
+                logger.debug(f"{context=}")
+                logger.error(f"number not found")
                 return render(request, 'check_app/result.html', context)
     else:
         form = MobileNumberForm()
