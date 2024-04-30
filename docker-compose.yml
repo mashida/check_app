@@ -7,6 +7,10 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    networks:
+      default:
+        aliases:
+          - db
 
  web:
     build: .
